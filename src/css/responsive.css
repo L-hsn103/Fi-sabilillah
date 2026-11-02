@@ -1,0 +1,43 @@
+/* ==========================================================================
+   Fi Sabilillah - Responsive Layouts & Print Styling
+   ========================================================================== */
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (max-width: 1023px) {
+  #mobile-menu-drawer {
+    max-height: calc(100vh - 5rem);
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .glass-card {
+    border-radius: 1.25rem;
+  }
+}
+
+@media print {
+  nav, footer, #apply-modal, #membership-modal, #donation-calc, .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .glass-card {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    background: white !important;
+  }
+  #articles-container .glass-card {
+    page-break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+}

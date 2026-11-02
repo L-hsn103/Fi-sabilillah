@@ -1,0 +1,33 @@
+/* ==========================================================================
+   Fi Sabilillah - Micro-Interactions & Animations
+   ========================================================================== */
+
+@keyframes floatOrb {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.02);
+  }
+}
+
+.floating-subtle {
+  animation: floatOrb 6s ease-in-out infinite;
+}
+
+.faq-toggle svg {
+  transition: transform 0.25s ease;
+}
+
+.toast-enter {
+  transform: translateY(0.5rem);
+  opacity: 0;
+}
+.toast-active {
+  transform: translateY(0);
+  opacity: 1;
+}
+.toast-exit {
+  transform: translateY(0.5rem);
+  opacity: 0;
+}
