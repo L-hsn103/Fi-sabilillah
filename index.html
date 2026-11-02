@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fi Sabilillah | ফি সাবিলিল্লাহ - Official Organization Website</title>
+    <!-- Favicon -->
+  <link rel="icon" type="image/png" href="public/images/favicon.png">
+  <meta name="description" content="Fi Sabilillah is a non-profit, voluntary organization established on April 10, 2021, dedicated to restoring human dignity through sustainable self-reliance and ethical giving.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Hind Siliguri for Bengali -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf7',
+              100: '#dcfce9',
+              200: '#bbf7d2',
+              300: '#86efae',
+              400: '#4ade80',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#0d5c46', /* Signature Logo Emerald */
+              800: '#0b4737',
+              900: '#073327',
+              950: '#031c15',
+            },
+            gold: {
+              50: '#fbf9f2',
+              100: '#f5f0df',
+              200: '#ebdebc',
+              300: '#dec793',
+              400: '#cfa964',
+              500: '#c5a059', /* Logo Gold Accent */
+              600: '#b08745',
+              700: '#8c6835',
+              800: '#71532f',
+              900: '#5e452a',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Hind Siliguri"', 'sans-serif'],
+            bengali: ['"Hind Siliguri"', 'sans-serif'],
+            arabic: ['"Amiri"', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+    <!-- Modular Stylesheets -->
+  <link rel="stylesheet" href="src/css/style.css">
+  <link rel="stylesheet" href="src/css/responsive.css">
+  <link rel="stylesheet" href="src/css/animations.css">
+</head>
+<body class="min-h-screen text-slate-800 antialiased selection:bg-brand-100 selection:text-brand-900">
+
+  <!-- Ambient Light Accents (Glassmorphism 2.0 depth elements) -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
+    <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-brand-700/5 blur-3xl"></div>
+    <div class="absolute top-1/4 -right-32 w-[30rem] h-[30rem] rounded-full bg-gold-400/8 blur-3xl"></div>
+    <div class="absolute top-2/3 left-10 w-80 h-80 rounded-full bg-brand-500/5 blur-3xl"></div>
+    <div class="absolute -bottom-20 right-1/4 w-[28rem] h-[28rem] rounded-full bg-gold-500/6 blur-3xl"></div>
+  </div>
+
+  <!-- Notification Toast Container -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- Top Announcement Bar (Minimalist) -->
+  <div class="relative z-40 bg-white/60 backdrop-blur-md border-b border-white/80 py-1.5 px-4 text-xs text-center text-slate-600 flex items-center justify-center gap-2">
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-brand-100 text-brand-800" data-i18n="badge_official">Official Non-Profit</span>
+    <span data-i18n="top_bar_text">Founded on April 10, 2021 • Committed to human dignity & sustainable self-reliance</span>
+    <span class="hidden md:inline text-slate-300">•</span>
+    <button id="top-email-copy-btn" class="hidden md:inline-flex items-center gap-1 text-brand-700 hover:text-brand-900 font-medium transition cursor-pointer">
+      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+      <span>fisabilillahofficial21@gmail.com</span>
+    </button>
+  </div>
+
+  <!-- Sticky Glass Navigation -->
+  <header class="sticky top-0 z-40 glass-nav transition-all duration-300" id="main-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo & Organization Name -->
+      <a href="#home" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-700/20 rounded-xl p-1">
+        <div class="relative w-11 h-11 rounded-full p-0.5 bg-white shadow-sm ring-1 ring-slate-200/80 overflow-hidden flex items-center justify-center">
+          <img src="public/images/logo.png" alt="Fi Sabilillah Logo" class="w-full h-full object-cover">
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xl font-bold tracking-tight text-slate-900 group-hover:text-brand-700 transition flex items-center gap-1.5">
+            Fi Sabilillah
+            <span class="text-xs font-normal text-gold-600 font-bengali bg-gold-50 px-1.5 py-0.5 rounded border border-gold-200/50">ফি সাবিলিল্লাহ</span>
+          </span>
+          <span class="text-[11px] font-medium text-slate-500 uppercase tracking-wider" data-i18n="nav_tagline">Non-Profit & Voluntary Org</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
+        <a href="#about" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-brand-700 rounded-lg hover:bg-white/60 transition" data-i18n="nav_about">About & Vision</a>
+        <a href="#programs" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-brand-700 rounded-lg hover:bg-white/60 transition" data-i18n="nav_programs">3 Core Programs</a>
+        <a href="#constitution" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-brand-700 rounded-lg hover:bg-white/60 transition" data-i18n="nav_constitution">Constitution</a>
+        <a href="#governance" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-brand-700 rounded-lg hover:bg-white/60 transition" data-i18n="nav_governance">Executive Council</a>
+        <a href="#transparency" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-brand-700 rounded-lg hover:bg-white/60 transition" data-i18n="nav_transparency">Fund & Transparency</a>
+        <a href="#contact" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-brand-700 rounded-lg hover:bg-white/60 transition" data-i18n="nav_contact">Contact</a>
+      </nav>
+
+      <!-- Right Action Items (Language Switcher & Membership CTA) -->
+      <div class="hidden sm:flex items-center gap-3">
+        <!-- Language Switcher Toggle -->
+        <button id="lang-toggle-btn" class="glass-pill px-3 py-1.5 text-xs font-semibold text-slate-700 hover:text-brand-700 flex items-center gap-1.5 rounded-full transition" title="Toggle Language (English / বাংলা)">
+          <svg class="w-3.5 h-3.5 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+          <span id="current-lang-label">বাংলা</span>
+        </button>
+
+        <!-- Apply CTA -->
+        <button id="nav-apply-btn" class="glass-button-primary px-4 py-2 text-xs font-semibold rounded-xl flex items-center gap-1.5 cursor-pointer">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
+          <span data-i18n="nav_cta_apply">Join / Apply</span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="flex items-center gap-2 lg:hidden">
+        <button id="mobile-lang-btn" class="glass-pill px-2.5 py-1 text-xs font-semibold text-slate-700 rounded-full">
+          <span id="mobile-lang-label">বাংলা</span>
+        </button>
+        <button id="mobile-menu-toggle" class="p-2 rounded-xl text-slate-700 hover:bg-white/80 transition" aria-label="Toggle mobile menu">
+          <svg id="menu-icon-bars" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div id="mobile-menu-drawer" class="hidden lg:hidden border-t border-white/80 bg-white/95 backdrop-blur-2xl px-6 py-6 shadow-xl transition-all">
+      <div class="flex flex-col gap-3">
+        <a href="#about" class="mobile-nav-link text-base font-medium text-slate-800 hover:text-brand-700 py-2 border-b border-slate-100" data-i18n="nav_about">About & Vision</a>
+        <a href="#programs" class="mobile-nav-link text-base font-medium text-slate-800 hover:text-brand-700 py-2 border-b border-slate-100" data-i18n="nav_programs">3 Core Programs</a>
+        <a href="#constitution" class="mobile-nav-link text-base font-medium text-slate-800 hover:text-brand-700 py-2 border-b border-slate-100" data-i18n="nav_constitution">Constitution</a>
+        <a href="#governance" class="mobile-nav-link text-base font-medium text-slate-800 hover:text-brand-700 py-2 border-b border-slate-100" data-i18n="nav_governance">Executive Council</a>
+        <a href="#transparency" class="mobile-nav-link text-base font-medium text-slate-800 hover:text-brand-700 py-2 border-b border-slate-100" data-i18n="nav_transparency">Fund & Transparency</a>
+        <a href="#contact" class="mobile-nav-link text-base font-medium text-slate-800 hover:text-brand-700 py-2 border-b border-slate-100" data-i18n="nav_contact">Contact</a>
+        
+        <div class="pt-4 flex flex-col gap-2">
+          <button id="mobile-drawer-apply-btn" class="glass-button-primary w-full py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
+            <span data-i18n="nav_cta_apply">Join / Apply for Membership</span>
+          </button>
+          <a href="mailto:fisabilillahofficial21@gmail.com" class="glass-button-secondary w-full py-2.5 rounded-xl text-xs font-semibold text-center">
+            fisabilillahofficial21@gmail.com
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+
+    <!-- HERO SECTION -->
+    <section id="home" class="pt-8 pb-16 md:pt-16 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="glass-card rounded-3xl p-6 sm:p-10 md:p-14 relative overflow-hidden">
+        
+        <!-- Subtle Inner Glass Gradients -->
+        <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-brand-500/10 blur-2xl pointer-events-none"></div>
+        <div class="absolute -left-20 -bottom-20 w-80 h-80 rounded-full bg-gold-400/10 blur-2xl pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
+          
+          <!-- Emblem Badge -->
+          <div class="mb-6 relative group">
+            <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-brand-600 to-gold-500 opacity-20 blur group-hover:opacity-40 transition duration-300"></div>
+            <div class="relative w-24 h-24 md:w-28 md:h-28 rounded-full p-2 bg-white/90 backdrop-blur-md shadow-md ring-1 ring-white flex items-center justify-center">
+              <img src="public/images/logo.png" alt="Fi Sabilillah Logo Emblem" class="w-full h-full object-contain">
+            </div>
+          </div>
+
+          <!-- Top Meta Pill -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-semibold text-brand-800 mb-6">
+            <span class="w-2 h-2 rounded-full bg-brand-600 animate-pulse"></span>
+            <span data-i18n="hero_pill">A Non-Political, Non-Profit Voluntary Initiative</span>
+            <span class="text-slate-300">•</span>
+            <span class="text-gold-700 font-medium" data-i18n="hero_pill_date">Est. April 10, 2021</span>
+          </div>
+
+          <!-- Main Headline -->
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight md:leading-none mb-6">
+            <span class="block" data-i18n="hero_title_1">Restoring Human Dignity</span>
+            <span class="block bg-gradient-to-r from-brand-700 via-brand-600 to-gold-600 bg-clip-text text-transparent mt-1" data-i18n="hero_title_2">
+              Through Sustainable Self-Reliance
+            </span>
+          </h1>
+
+          <!-- Arabic Motto Calligraphy -->
+          <p class="font-arabic text-xl md:text-2xl text-slate-600 mb-4 tracking-wide" dir="rtl">
+            فِي سَبِيلِ اللَّهِ — مَعَ حِفْظِ كَرَامَةِ الإِنْسَانِ
+          </p>
+
+          <!-- Subtitle / Mission Statement Summary -->
+          <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mb-8" data-i18n="hero_description">
+            Founded by students in Bangladesh on April 10, 2021, Fi Sabilillah eliminates wealth-based social hierarchies. We replace transient, public handouts with discreet, enduring empowerment—enabling marginalized citizens to become proud, self-sufficient contributors.
+          </p>
+
+          <!-- Primary Hero Actions -->
+          <div class="flex flex-wrap items-center justify-center gap-3 w-full sm:w-auto mb-10">
+            <a href="#constitution" class="glass-button-primary px-6 py-3.5 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 w-full sm:w-auto">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+              <span data-i18n="hero_cta_constitution">Explore Constitution & Charter</span>
+            </a>
+            
+            <button id="hero-apply-btn" class="glass-button-secondary px-6 py-3.5 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 w-full sm:w-auto cursor-pointer">
+              <svg class="w-4 h-4 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
+              <span data-i18n="hero_cta_apply">Apply for Membership (Free)</span>
+            </button>
+            
+            <a href="#contact" class="glass-pill px-5 py-3.5 rounded-xl text-sm font-semibold text-slate-700 hover:text-brand-700 flex items-center justify-center gap-1.5 transition w-full sm:w-auto">
+              <span data-i18n="hero_cta_contact">Contact Us</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+
+          <!-- Trust & Value Badges Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-3xl pt-8 border-t border-slate-200/60">
+            <div class="glass-pill rounded-2xl p-3 text-center">
+              <div class="text-xs text-slate-500 font-medium" data-i18n="badge_founded_label">Founded</div>
+              <div class="text-sm font-bold text-slate-800" data-i18n="badge_founded_val">10 April, 2021</div>
+            </div>
+            <div class="glass-pill rounded-2xl p-3 text-center">
+              <div class="text-xs text-slate-500 font-medium" data-i18n="badge_scope_label">Jurisdiction</div>
+              <div class="text-sm font-bold text-slate-800" data-i18n="badge_scope_val">Bangladesh & Beyond</div>
+            </div>
+            <div class="glass-pill rounded-2xl p-3 text-center">
+              <div class="text-xs text-slate-500 font-medium" data-i18n="badge_membership_label">Membership Fee</div>
+              <div class="text-sm font-bold text-brand-700" data-i18n="badge_membership_val">0 ৳ (Free)</div>
+            </div>
+            <div class="glass-pill rounded-2xl p-3 text-center">
+              <div class="text-xs text-slate-500 font-medium" data-i18n="badge_fund_label">Member Dues</div>
+              <div class="text-sm font-bold text-slate-800" data-i18n="badge_fund_val">Min 50 ৳ / mo</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: PHILOSOPHY & THE PROBLEM WE SOLVE (CONSTITUTION CHAPTER 2) -->
+    <section id="about" class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full glass-pill text-xs font-semibold text-brand-800 mb-3">
+          <span data-i18n="sec_about_tag">Our Origin & Philosophy</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight" data-i18n="sec_about_title">
+          Ending the Dilemma of Wealth-Based Charity
+        </h2>
+        <p class="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed" data-i18n="sec_about_desc">
+          Article 4 of the Fi Sabilillah Constitution establishes why this movement was born and how we challenge conventional, status-driven philanthropy.
+        </p>
+      </div>
+
+      <!-- Problem vs Solution Contrast Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12">
+        
+        <!-- The Problem Card -->
+        <div class="glass-card rounded-2xl p-6 sm:p-8 border-l-4 border-l-amber-500/80">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="prob_card_title">
+            The Conventional Charity Pitfall
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4" data-i18n="prob_card_text_1">
+            "A notable drawback in modern society's customary donation culture is public giving driven by the donor's pursuit of social prestige and acclaim, which inevitably humiliates and degrades the recipient's personal dignity."
+          </p>
+          <p class="text-sm text-slate-600 leading-relaxed" data-i18n="prob_card_text_2">
+            Furthermore, routine temporary handouts create recurring dependency without offering a realistic path toward long-term financial self-reliance.
+          </p>
+          <div class="mt-6 pt-4 border-t border-slate-200/60 flex items-center gap-2 text-xs font-medium text-amber-800">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+            <span data-i18n="prob_card_cite">Constitution Chapter 2, Article 4 (Vision & Mission)</span>
+          </div>
+        </div>
+
+        <!-- The Fi Sabilillah Remedy Card -->
+        <div class="glass-card rounded-2xl p-6 sm:p-8 border-l-4 border-l-brand-600">
+          <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-800 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="sol_card_title">
+            The Fi Sabilillah Vision: Dignity First
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4" data-i18n="sol_card_text_1">
+            "A group of conscious students established 'Fi Sabilillah' to dismantle wealth-based social stratification and provide sustainable, discreet support while keeping the recipient's dignity untarnished."
+          </p>
+          <p class="text-sm text-slate-600 leading-relaxed" data-i18n="sol_card_text_2">
+            Rather than perpetuating aid dependency, we prioritize lasting self-reliance—empowering recipients with skills and tools to emerge as proud, productive citizens contributing to society.
+          </p>
+          <div class="mt-6 pt-4 border-t border-slate-200/60 flex items-center gap-2 text-xs font-medium text-brand-800">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-600"></span>
+            <span data-i18n="sol_card_cite">Sole Goal: Seeking the Pleasure of Allah (আল্লাহর সন্তুষ্টি)</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Core Objective Banner -->
+      <div class="glass-card rounded-2xl p-6 sm:p-8 text-center max-w-4xl mx-auto bg-gradient-to-br from-white/90 to-brand-50/50">
+        <span class="text-xs font-bold uppercase tracking-wider text-gold-600 font-sans" data-i18n="obj_banner_label">Article 5: Supreme Goal & Objective</span>
+        <blockquote class="mt-3 text-base sm:text-lg md:text-xl font-medium text-slate-800 leading-relaxed font-bengali">
+          “আল্লাহর সন্তুষ্টি অর্জনের লক্ষ্যে অর্থনৈতিকভাবে পিছিয়ে পড়া মানুষদের আত্মনির্ভরশীল ও আত্মমর্যাদাসম্পন্ন নাগরিক হিসেবে গড়ে তুলতে সহায়তা করা এবং মানব-মর্যাদার প্রকৃত অর্থ প্রতিষ্ঠা করা।”
+        </blockquote>
+        <p class="mt-3 text-xs sm:text-sm text-slate-500" data-i18n="obj_banner_en">
+          "To assist economically disadvantaged individuals in becoming self-reliant and self-respecting citizens solely for the pleasure of Allah, and to re-establish the true essence of human dignity."
+        </p>
+      </div>
+
+    </section>
+
+    <!-- SECTION 3: THE 3 CORE PROGRAMS (CONSTITUTION ARTICLE 6) -->
+    <section id="programs" class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full glass-pill text-xs font-semibold text-brand-800 mb-3">
+          <span data-i18n="sec_prog_tag">Article 6: Operational Priorities</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight" data-i18n="sec_prog_title">
+          Three Pillars of Targeted Action
+        </h2>
+        <p class="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed" data-i18n="sec_prog_desc">
+          Our constitution mandates that all activities and expenditures strictly follow three prioritized programs.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        
+        <!-- Program 1 -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-8 h-8 rounded-full bg-brand-700 text-white text-xs font-bold flex items-center justify-center">1</span>
+              <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-2 py-0.5 rounded-full border border-brand-200" data-i18n="prog_priority_1">Top Priority</span>
+            </div>
+            <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-700 flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="prog1_title">
+              Sustainable Self-Reliance
+            </h3>
+            <p class="text-xs font-medium text-slate-500 font-bengali mb-3">
+              অর্থনৈতিকভাবে পিছিয়ে পড়া মানুষদের আত্মনির্ভরশীল ও আত্মমর্যাদাসম্পন্ন হিসেবে গড়ে তুলতে সহায়তা
+            </p>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4" data-i18n="prog1_desc">
+              Providing production tools (such as sewing machines, micro-trade seed supplies, vocational instruments, and business mentoring) so families generate their own livelihoods rather than relying on cyclic relief.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+            <span data-i18n="prog1_metric">Focus: Vocational Independence</span>
+            <span class="text-brand-700 font-semibold">Priority #1</span>
+          </div>
+        </div>
+
+        <!-- Program 2 -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-8 h-8 rounded-full bg-gold-600 text-white text-xs font-bold flex items-center justify-center">2</span>
+              <span class="text-[11px] font-semibold text-gold-700 bg-gold-50 px-2 py-0.5 rounded-full border border-gold-200" data-i18n="prog_priority_2">Core Awareness</span>
+            </div>
+            <div class="w-12 h-12 rounded-2xl bg-gold-50 text-gold-600 flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path></svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="prog2_title">
+              Ethical Giving & Human Dignity
+            </h3>
+            <p class="text-xs font-medium text-slate-500 font-bengali mb-3">
+              সমাজে সঠিক দান পদ্ধতি ও মানব মর্যাদার গুরুত্ব সম্পর্কে জনসচেতনতা সৃষ্টি
+            </p>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4" data-i18n="prog2_desc">
+              Campaigning against ostentatious photo-op donations. Educating society and donors on confidential, respectful assistance that safeguards the self-esteem of beneficiaries.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+            <span data-i18n="prog2_metric">Focus: Social Paradigm Shift</span>
+            <span class="text-gold-700 font-semibold">Priority #2</span>
+          </div>
+        </div>
+
+        <!-- Program 3 -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-8 h-8 rounded-full bg-slate-700 text-white text-xs font-bold flex items-center justify-center">3</span>
+              <span class="text-[11px] font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded-full border border-slate-200" data-i18n="prog_priority_3">Emergency Standby</span>
+            </div>
+            <div class="w-12 h-12 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="prog3_title">
+              Disaster & Accident Relief
+            </h3>
+            <p class="text-xs font-medium text-slate-500 font-bengali mb-3">
+              প্রাকৃতিক দুর্যোগ বা দুর্ঘটনায় ক্ষতিগ্রস্ত ব্যক্তিদের সহায়তা প্রদান
+            </p>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4" data-i18n="prog3_desc">
+              Rapid, empathetic assistance to communities struck by sudden natural disasters (floods, cyclones) or individual catastrophic accidents, handled with utmost confidentiality.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+            <span data-i18n="prog3_metric">Focus: Crisis Humanitarian Aid</span>
+            <span class="text-slate-700 font-semibold">Priority #3</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SECTION 4: INTERACTIVE CONSTITUTION EXPLORER (ARTICLES 1 TO 16) -->
+    <section id="constitution" class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full glass-pill text-xs font-semibold text-brand-800 mb-3">
+          <span data-i18n="sec_const_tag">Full Organizational Charter</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight" data-i18n="sec_const_title">
+          Interactive Constitution of Fi Sabilillah
+        </h2>
+        <p class="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed" data-i18n="sec_const_desc">
+          Complete transparent governance document comprising 8 chapters and 16 articles, enacted by our founding members.
+        </p>
+      </div>
+
+      <!-- Controls & Search Toolbar -->
+      <div class="glass-card rounded-2xl p-4 sm:p-5 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        
+        <!-- Search Input -->
+        <div class="relative w-full sm:w-80">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          </div>
+          <input type="text" id="const-search-input" placeholder="Search articles, keywords, roles..." class="glass-input w-full pl-9 pr-4 py-2 text-xs sm:text-sm rounded-xl text-slate-800 placeholder-slate-400">
+        </div>
+
+        <!-- Filter Chips & Print -->
+        <div class="flex items-center gap-2 w-full sm:w-auto justify-end overflow-x-auto pb-1 sm:pb-0">
+          <button id="show-all-articles-btn" class="glass-pill px-3 py-1.5 rounded-lg text-xs font-semibold text-brand-800 hover:bg-brand-50 transition whitespace-nowrap active-chip">
+            <span data-i18n="btn_all_chapters">All 8 Chapters</span>
+          </button>
+          <button id="toggle-bengali-verbatim-btn" class="glass-pill px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-700 hover:text-brand-700 transition whitespace-nowrap flex items-center gap-1">
+            <span data-i18n="btn_toggle_verbatim">Show Original Bengali Text</span>
+          </button>
+          <button id="print-constitution-btn" class="glass-pill px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-700 hover:text-slate-900 transition whitespace-nowrap flex items-center gap-1" title="Print Constitution">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+            <span data-i18n="btn_print">Print</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Chapter Tabs -->
+      <div class="flex gap-2 overflow-x-auto pb-3 mb-6 no-scrollbar" id="chapter-tabs-container">
+        <button class="chap-tab px-4 py-2 rounded-xl text-xs font-semibold glass-pill whitespace-nowrap bg-brand-700 text-white" data-chap="all">All Chapters</button>
+        <button class="chap-tab px-4 py-2 rounded-xl text-xs font-semibold glass-pill whitespace-nowrap text-slate-700 hover:text-brand-700" data-chap="1">Ch 1: Identity</button>
+        <button class="chap-tab px-4 py-2 rounded-xl text-xs font-semibold glass-pill whitespace-nowrap text-slate-700 hover:text-brand-700" data-chap="2">Ch 2: Vision & Mission</button>
+        <button class="chap-tab px-4 py-2 rounded-xl text-xs font-semibold glass-pill whitespace-nowrap text-slate-700 hover:text-brand-700" data-chap="3">Ch 3: Membership</button>
+        <button class="chap-tab px-4 py-2 rounded-xl text-xs font-semibold glass-pill whitespace-nowrap text-slate-700 hover:text-brand-700" data-chap="4">Ch 4: Governance</button>
+        <button class="chap-tab px-4 py-2 rounded-xl text-xs font-semibold glass-pill whitespace-nowrap text-slate-700 hover:text-brand-700" data-chap="5">Ch 5: Meetings & Elections</button>
+        <button class="chap-tab px-4 py-2 rounded-xl text-xs font-semibold glass-pill whitespace-nowrap text-slate-700 hover:text-brand-700" data-chap="6">Ch 6: Finance & Audit</button>
+        <button class="chap-tab px-4 py-2 rounded-xl text-xs font-semibold glass-pill whitespace-nowrap text-slate-700 hover:text-brand-700" data-chap="7">Ch 7: Amendments</button>
+        <button class="chap-tab px-4 py-2 rounded-xl text-xs font-semibold glass-pill whitespace-nowrap text-slate-700 hover:text-brand-700" data-chap="8">Ch 8: Dissolution</button>
+      </div>
+
+      <!-- Constitution Articles List (Rendered by JS with interactive data) -->
+      <div id="articles-container" class="space-y-4">
+        <!-- Injected via JavaScript from authoritative Constitution text -->
+      </div>
+
+    </section>
+
+    <!-- SECTION 5: EXECUTIVE COUNCIL & ELECTION SYSTEM (CONSTITUTION CHAPTERS 4 & 5) -->
+    <section id="governance" class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full glass-pill text-xs font-semibold text-brand-800 mb-3">
+          <span data-i18n="sec_gov_tag">Leadership & Elections</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight" data-i18n="sec_gov_title">
+          Democratic Executive Council
+        </h2>
+        <p class="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed" data-i18n="sec_gov_desc">
+          Articles 9, 10, and 12 define our nine executive offices and an annual democratic election model built on mutual trust and accountability.
+        </p>
+      </div>
+
+      <!-- The 9 Executive Portfolios Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+        
+        <!-- 1. President -->
+        <div class="glass-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold text-brand-800 bg-brand-50 px-2.5 py-1 rounded-lg border border-brand-200">Portfolio 1</span>
+              <span class="text-xs text-slate-500 font-bengali">সভাপতি</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-1">President</h3>
+            <p class="text-xs text-slate-600 leading-relaxed font-bengali mb-3">
+              সংস্থার সার্বিক নেতৃত্ব প্রদান করবেন এবং গুরুত্বপূর্ণ সিদ্ধান্ত গ্রহণে চূড়ান্ত কর্তৃত্ব রাখবেন।
+            </p>
+            <p class="text-xs text-slate-500 leading-relaxed" data-i18n="role_pres_en">
+              Provides overall organizational leadership and exercises final authority on critical decisions.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 text-[11px] text-slate-400">
+            Article 10, Clause 1
+          </div>
+        </div>
+
+        <!-- 2. Vice President -->
+        <div class="glass-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold text-brand-800 bg-brand-50 px-2.5 py-1 rounded-lg border border-brand-200">Portfolio 2</span>
+              <span class="text-xs text-slate-500 font-bengali">সহ-সভাপতি</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-1">Vice President</h3>
+            <p class="text-xs text-slate-600 leading-relaxed font-bengali mb-3">
+              President-কে সহায়তা করবেন এবং তার অনুপস্থিতিতে দায়িত্ব পালন করবেন।
+            </p>
+            <p class="text-xs text-slate-500 leading-relaxed" data-i18n="role_vp_en">
+              Assists the President and assumes full responsibilities during the President's absence.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 text-[11px] text-slate-400">
+            Article 10, Clause 2
+          </div>
+        </div>
+
+        <!-- 3. General Secretary -->
+        <div class="glass-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold text-brand-800 bg-brand-50 px-2.5 py-1 rounded-lg border border-brand-200">Portfolio 3</span>
+              <span class="text-xs text-slate-500 font-bengali">সাধারণ সম্পাদক</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-1">General Secretary</h3>
+            <p class="text-xs text-slate-600 leading-relaxed font-bengali mb-3">
+              সংস্থার সার্বিক কার্যক্রম তদারকি ও সমন্বয় করবেন।
+            </p>
+            <p class="text-xs text-slate-500 leading-relaxed" data-i18n="role_gs_en">
+              Supervises and coordinates all organizational operations, programs, and communications.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 text-[11px] text-slate-400">
+            Article 10, Clause 3
+          </div>
+        </div>
+
+        <!-- 4. Organizing Secretary -->
+        <div class="glass-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold text-brand-800 bg-brand-50 px-2.5 py-1 rounded-lg border border-brand-200">Portfolio 4</span>
+              <span class="text-xs text-slate-500 font-bengali">সাংগঠনিক সম্পাদক</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-1">Organizing Secretary</h3>
+            <p class="text-xs text-slate-600 leading-relaxed font-bengali mb-3">
+              সদস্যদের মধ্যে সমন্বয় সাধন ও কার্যক্রম আয়োজন করবেন।
+            </p>
+            <p class="text-xs text-slate-500 leading-relaxed" data-i18n="role_org_en">
+              Facilitates internal member coordination and manages organizational events and initiatives.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 text-[11px] text-slate-400">
+            Article 10, Clause 4
+          </div>
+        </div>
+
+        <!-- 5. Treasurer -->
+        <div class="glass-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold text-brand-800 bg-brand-50 px-2.5 py-1 rounded-lg border border-brand-200">Portfolio 5</span>
+              <span class="text-xs text-slate-500 font-bengali">কোষাধ্যক্ষ</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-1">Treasurer</h3>
+            <p class="text-xs text-slate-600 leading-relaxed font-bengali mb-3">
+              সংস্থার আর্থিক বিষয়াদি পরিচালনা ও হিসাব সংরক্ষণ করবেন।
+            </p>
+            <p class="text-xs text-slate-500 leading-relaxed" data-i18n="role_tr_en">
+              Manages all financial funds, records, bookkeeping, and leads the fiscal year-end audit.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 text-[11px] text-slate-400">
+            Article 10, Clause 5 & Article 14
+          </div>
+        </div>
+
+        <!-- 6. Office Secretary -->
+        <div class="glass-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold text-brand-800 bg-brand-50 px-2.5 py-1 rounded-lg border border-brand-200">Portfolio 6</span>
+              <span class="text-xs text-slate-500 font-bengali">দপ্তর সম্পাদক</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-1">Office Secretary</h3>
+            <p class="text-xs text-slate-600 leading-relaxed font-bengali mb-3">
+              সকল দাপ্তরিক নথিপত্র সংরক্ষণ করবেন।
+            </p>
+            <p class="text-xs text-slate-500 leading-relaxed" data-i18n="role_off_en">
+              Preserves and archives all official records, minutes, correspondence, and documentation.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 text-[11px] text-slate-400">
+            Article 10, Clause 6
+          </div>
+        </div>
+
+        <!-- 7. Policy Coordinator -->
+        <div class="glass-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold text-brand-800 bg-brand-50 px-2.5 py-1 rounded-lg border border-brand-200">Portfolio 7</span>
+              <span class="text-xs text-slate-500 font-bengali">নীতি সমন্বয়কারী</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-1">Policy Coordinator</h3>
+            <p class="text-xs text-slate-600 leading-relaxed font-bengali mb-3">
+              নীতিমালা প্রণয়ন ও সংশোধনে কাজ করবেন।
+            </p>
+            <p class="text-xs text-slate-500 leading-relaxed" data-i18n="role_pol_en">
+              Formulates, reviews, and refines operational policies and constitutional amendments.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 text-[11px] text-slate-400">
+            Article 10, Clause 7
+          </div>
+        </div>
+
+        <!-- 8. Publicity Secretary -->
+        <div class="glass-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold text-brand-800 bg-brand-50 px-2.5 py-1 rounded-lg border border-brand-200">Portfolio 8</span>
+              <span class="text-xs text-slate-500 font-bengali">প্রচার সম্পাদক</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-1">Publicity Secretary</h3>
+            <p class="text-xs text-slate-600 leading-relaxed font-bengali mb-3">
+              সংস্থার কার্যক্রম প্রচার ও প্রসার করবেন।
+            </p>
+            <p class="text-xs text-slate-500 leading-relaxed" data-i18n="role_pub_en">
+              Disseminates organization news, publishes awareness materials, and handles public outreach.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 text-[11px] text-slate-400">
+            Article 10, Clause 8
+          </div>
+        </div>
+
+        <!-- 9. Evaluation & Impact Analyst -->
+        <div class="glass-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold text-brand-800 bg-brand-50 px-2.5 py-1 rounded-lg border border-brand-200">Portfolio 9</span>
+              <span class="text-xs text-slate-500 font-bengali">মূল্যায়ন ও প্রভাব বিশ্লেষক</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-1">Evaluation & Impact Analyst</h3>
+            <p class="text-xs text-slate-600 leading-relaxed font-bengali mb-3">
+              কার্যক্রমের ফলাফল মূল্যায়ন করবেন।
+            </p>
+            <p class="text-xs text-slate-500 leading-relaxed" data-i18n="role_eval_en">
+              Measures long-term outcomes of beneficiary self-reliance and conducts impact assessment.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 text-[11px] text-slate-400">
+            Article 10, Clause 9
+          </div>
+        </div>
+
+      </div>
+
+      <!-- The Unique Democratic Election Framework Card (Article 12) -->
+      <div class="glass-card rounded-3xl p-6 sm:p-10 border-t-4 border-t-gold-500">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-6 pb-6 border-b border-slate-200/60">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-50 text-gold-800 text-xs font-bold mb-2 border border-gold-200">
+              <span>Article 12: Unique Democratic Framework</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900" data-i18n="elec_title">
+              Annual April Democratic Elections
+            </h3>
+            <p class="text-sm text-slate-600 mt-1" data-i18n="elec_subtitle">
+              Every member is both a candidate and a voter. No candidate campaigns for themselves.
+            </p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-semibold text-slate-500">Scheduled:</span>
+            <span class="px-3 py-1 rounded-lg bg-slate-100 text-slate-800 text-xs font-bold">First Week of April (Annual)</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          <div class="glass-pill p-4 rounded-xl">
+            <div class="font-bold text-brand-800 mb-1" data-i18n="elec_rule1_t">Universal Participation</div>
+            <p class="text-slate-600" data-i18n="elec_rule1_d">All active members are candidates and voters. No separate candidacy filings.</p>
+          </div>
+          <div class="glass-pill p-4 rounded-xl">
+            <div class="font-bold text-brand-800 mb-1" data-i18n="elec_rule2_t">Zero Self-Voting</div>
+            <p class="text-slate-600" data-i18n="elec_rule2_d">No member can cast a vote for themselves, ensuring selfless evaluation based on merit.</p>
+          </div>
+          <div class="glass-pill p-4 rounded-xl">
+            <div class="font-bold text-brand-800 mb-1" data-i18n="elec_rule3_t">Sequential Transition</div>
+            <p class="text-slate-600" data-i18n="elec_rule3_d">President & GS are elected first; they then collaboratively appoint remaining officers.</p>
+          </div>
+          <div class="glass-pill p-4 rounded-xl">
+            <div class="font-bold text-brand-800 mb-1" data-i18n="elec_rule4_t">Emergency Recall</div>
+            <p class="text-slate-600" data-i18n="elec_rule4_d">If 3 members petition for re-election, an emergency vote must be immediately called.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SECTION 6: MEMBERSHIP CRITERIA & CODE (CONSTITUTION CHAPTER 3) -->
+    <section id="membership" class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      
+      <div class="glass-card rounded-3xl p-6 sm:p-10 md:p-12 relative overflow-hidden">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <div class="lg:col-span-7">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full glass-pill text-xs font-semibold text-brand-800 mb-3">
+              <span data-i18n="sec_member_tag">Chapter 3: Member Qualifications</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4" data-i18n="sec_member_title">
+              Join Our Voluntary Mission
+            </h2>
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6" data-i18n="sec_member_desc">
+              Articles 7 and 8 outline the qualifications and responsibilities of membership. We welcome students and citizens dedicated to sustainable community empowerment.
+            </p>
+
+            <!-- Membership Criteria Checklist -->
+            <div class="space-y-3 mb-8">
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div>
+                  <span class="text-sm font-bold text-slate-800" data-i18n="crit_age_title">Minimum Age 16 Years</span>
+                  <p class="text-xs text-slate-500" data-i18n="crit_age_sub">আবেদনকারীর ন্যূনতম বয়স ১৬ বছর হতে হবে।</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div>
+                  <span class="text-sm font-bold text-brand-700" data-i18n="crit_fee_title">Zero Membership Application Fee (100% Free)</span>
+                  <p class="text-xs text-slate-500" data-i18n="crit_fee_sub">সদস্যপদের জন্য কোনো প্রকার ফি প্রদান করতে হবে না।</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div>
+                  <span class="text-sm font-bold text-slate-800" data-i18n="crit_ref_title">Recommendation by Existing Member</span>
+                  <p class="text-xs text-slate-500" data-i18n="crit_ref_sub">আবেদনকারীর পক্ষে বর্তমান সদস্যদের সুপারিশ থাকতে হবে।</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div>
+                  <span class="text-sm font-bold text-slate-800" data-i18n="crit_ded_title">Active Commitment & Value Alignment</span>
+                  <p class="text-xs text-slate-500" data-i18n="crit_ded_sub">সংগঠনের লক্ষ্য ও উদ্দেশ্যের প্রতি আগ্রহ এবং কার্যক্রমে সক্রিয় অংশগ্রহণের প্রতিশ্রুতি।</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Button -->
+            <button id="section-apply-btn" class="glass-button-primary px-8 py-3.5 rounded-xl text-sm font-semibold inline-flex items-center gap-2 cursor-pointer">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+              <span data-i18n="btn_open_app_modal">Open Membership Application Form</span>
+            </button>
+          </div>
+
+          <!-- Right Card: Commitment & Cancellation Safeguard -->
+          <div class="lg:col-span-5">
+            <div class="glass-card rounded-2xl p-6 border-slate-200/80 bg-white/80">
+              <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-3 flex items-center gap-2">
+                <svg class="w-4 h-4 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span>Article 8: Code of Conduct & Integrity</span>
+              </h4>
+              <p class="text-xs text-slate-600 leading-relaxed font-bengali mb-3">
+                “কোনো সদস্য সংগঠনের নিয়মনীতি অমান্য করলে অথবা দীর্ঘ সময় ধরে নিষ্ক্রিয় থাকলে নির্বাহী কমিটির আলোচনা সাপেক্ষে তার সদস্যপদ বাতিল করতে পারবে।”
+              </p>
+              <p class="text-xs text-slate-500 leading-relaxed mb-4" data-i18n="code_conduct_en">
+                "If any member violates the constitution or remains inactive for an extended period, their membership may be revoked following formal deliberation by the Executive Committee."
+              </p>
+              <div class="bg-brand-50/60 rounded-xl p-3 border border-brand-100 text-[11px] text-brand-900">
+                <span class="font-bold">Monthly Obligation:</span> Active members contribute a minimum of 50 BDT monthly to support sustainable operations (Article 13).
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SECTION 7: FINANCIAL ARCHITECTURE & TRANSPARENCY (CHAPTER 6) -->
+    <section id="transparency" class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full glass-pill text-xs font-semibold text-brand-800 mb-3">
+          <span data-i18n="sec_trans_tag">Chapter 6: Fund Ethics & Auditing</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight" data-i18n="sec_trans_title">
+          Complete Financial Integrity & Audit
+        </h2>
+        <p class="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed" data-i18n="sec_trans_desc">
+          Articles 13 and 14 establish a strict fiduciary framework to ensure every single Taka directly serves humanitarian empowerment.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        
+        <div class="glass-card rounded-2xl p-6">
+          <div class="text-brand-700 font-bold text-sm mb-1" data-i18n="fund_c1_t">Member Core Dues</div>
+          <div class="text-2xl font-extrabold text-slate-900 mb-2">50 ৳ <span class="text-xs font-medium text-slate-500">/ month minimum</span></div>
+          <p class="text-xs text-slate-600 leading-relaxed font-bengali mb-2">
+            সদস্যগণ প্রতি মাসে কমপক্ষে ৫০ টাকা অনুদান প্রদান করবেন।
+          </p>
+          <p class="text-xs text-slate-500 leading-relaxed" data-i18n="fund_c1_d">
+            Provides predictable, independent baseline funding free from corporate or political influence.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6">
+          <div class="text-brand-700 font-bold text-sm mb-1" data-i18n="fund_c2_t">Third-Party Donations</div>
+          <div class="text-2xl font-extrabold text-slate-900 mb-2">Via Verified Members</div>
+          <p class="text-xs text-slate-600 leading-relaxed font-bengali mb-2">
+            ফি সাবিলিল্লাহ এর সদস্য নয় এমন ব্যক্তিদের অনুদান সংস্থার সদস্যদের মাধ্যমে গ্রহণ করা হবে।
+          </p>
+          <p class="text-xs text-slate-500 leading-relaxed" data-i18n="fund_c2_d">
+            External goodwill is received strictly through members to guarantee accountability and authenticity.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6">
+          <div class="text-brand-700 font-bold text-sm mb-1" data-i18n="fund_c3_t">100% Meeting Approved & Audited</div>
+          <div class="text-2xl font-extrabold text-slate-900 mb-2">Annual Fiscal Audit</div>
+          <p class="text-xs text-slate-600 leading-relaxed font-bengali mb-2">
+            সকল ব্যয় সভার মাধ্যমে অনুমোদিত হবে এবং অর্থবছরে অডিট সম্পন্ন হবে।
+          </p>
+          <p class="text-xs text-slate-500 leading-relaxed" data-i18n="fund_c3_d">
+            No expenditure is made without formal executive consensus. The Treasurer leads full end-of-year audit.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Interactive Micro-Impact Calculator -->
+      <div id="donation-calc" class="glass-card rounded-3xl p-6 sm:p-10 max-w-4xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-6">
+          <span class="text-xs font-bold uppercase tracking-wider text-gold-600" data-i18n="calc_tag">Micro-Donation Impact Visualizer</span>
+          <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mt-1" data-i18n="calc_title">See What Collective Giving Achieves</h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1" data-i18n="calc_sub">
+            Move the slider or select an amount to see how modest monthly contributions empower individuals into self-reliant entrepreneurs over a year.
+          </p>
+        </div>
+
+        <div class="max-w-xl mx-auto space-y-6">
+          <!-- Preset Buttons -->
+          <div class="flex items-center justify-center gap-2">
+            <button class="calc-preset glass-pill px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-700 hover:text-brand-700 active-preset" data-val="50">50 ৳</button>
+            <button class="calc-preset glass-pill px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-700 hover:text-brand-700" data-val="100">100 ৳</button>
+            <button class="calc-preset glass-pill px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-700 hover:text-brand-700" data-val="500">500 ৳</button>
+            <button class="calc-preset glass-pill px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-700 hover:text-brand-700" data-val="1000">1,000 ৳</button>
+            <button class="calc-preset glass-pill px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-700 hover:text-brand-700" data-val="3000">3,000 ৳</button>
+          </div>
+
+          <!-- Range Slider -->
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs text-slate-500 font-medium">
+              <span>50 ৳</span>
+              <span id="slider-display-val" class="text-base font-bold text-brand-800">50 ৳ / month</span>
+              <span>5,000 ৳</span>
+            </div>
+            <input type="range" id="impact-slider" min="50" max="5000" step="50" value="50" class="w-full accent-brand-700 cursor-pointer">
+          </div>
+
+          <!-- Dynamic Output Card -->
+          <div class="glass-pill rounded-2xl p-5 border border-brand-200/60 bg-white/70">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
+              <span class="text-xs font-semibold text-slate-500" data-i18n="calc_annual_lbl">Annual Collective Value:</span>
+              <span id="calc-annual-val" class="text-lg font-extrabold text-brand-800">600 ৳ / year</span>
+            </div>
+            <div class="text-xs text-slate-700 leading-relaxed" id="calc-impact-description">
+              <!-- Dynamically populated via JS -->
+            </div>
+          </div>
+
+          <!-- Note on Giving -->
+          <p class="text-[11px] text-slate-500 text-center" data-i18n="calc_footnote">
+            Notice: In accordance with Article 13, Fi Sabilillah does not process public commercial payments. External donations must be coordinated through an active member or official email.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SECTION 8: CONTACT & VERIFICATION -->
+    <section id="contact" class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full glass-pill text-xs font-semibold text-brand-800 mb-3">
+          <span data-i18n="sec_contact_tag">Official Communication</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight" data-i18n="sec_contact_title">
+          Connect with Fi Sabilillah
+        </h2>
+        <p class="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed" data-i18n="sec_contact_desc">
+          For inquiries, member verification, program proposals, or voluntary collaboration, reach out to our executive secretariat.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left: Official Contact Details & Email Copy -->
+        <div class="lg:col-span-5 space-y-4">
+          
+          <!-- Email Card -->
+          <div class="glass-card rounded-2xl p-6">
+            <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-1" data-i18n="contact_email_title">Official Organization Email</h3>
+            <p class="text-xs text-slate-500 mb-4" data-i18n="contact_email_sub">Primary channel for official correspondence & documentation.</p>
+            
+            <div class="flex items-center justify-between p-3 rounded-xl bg-white/80 border border-slate-200/80 mb-3">
+              <span class="text-xs sm:text-sm font-semibold text-slate-800 select-all font-mono">fisabilillahofficial21@gmail.com</span>
+              <button id="card-email-copy-btn" class="p-1.5 rounded-lg text-slate-500 hover:text-brand-700 hover:bg-slate-100 transition cursor-pointer" title="Copy email address">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+              </button>
+            </div>
+
+            <div class="flex gap-2">
+              <a href="mailto:fisabilillahofficial21@gmail.com" class="glass-button-primary flex-1 py-2 rounded-xl text-xs font-semibold text-center flex items-center justify-center gap-1.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                <span data-i18n="btn_send_email">Send Email</span>
+              </a>
+              <button id="quick-copy-trigger" class="glass-button-secondary px-4 py-2 rounded-xl text-xs font-semibold flex items-center justify-center gap-1 cursor-pointer">
+                <span data-i18n="btn_copy_email">Copy</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Location & Scope Card -->
+          <div class="glass-card rounded-2xl p-6">
+            <div class="w-10 h-10 rounded-xl bg-gold-50 text-gold-700 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-1" data-i18n="contact_loc_title">Headquarters & Jurisdiction</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-2">
+              Primary operational domain: <span class="font-bold text-slate-800">Bangladesh</span> (Article 3).
+            </p>
+            <p class="text-xs text-slate-500 leading-relaxed" data-i18n="contact_loc_sub">
+              Voluntary coordination across educational institutions, communities, and disaster-prone zones nationwide.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Right: Direct Message In-Page Form -->
+        <div class="lg:col-span-7">
+          <div class="glass-card rounded-2xl p-6 sm:p-8">
+            <h3 class="text-lg font-bold text-slate-900 mb-1" data-i18n="msg_form_title">Send a Direct Inquiry</h3>
+            <p class="text-xs text-slate-500 mb-6" data-i18n="msg_form_sub">We typically respond to official inquiries within 24–48 hours.</p>
+
+            <form id="contact-inquiry-form" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="form_lbl_name">Your Full Name *</label>
+                  <input type="text" id="contact-name" required placeholder="e.g. Abdullah Al Mamun" class="glass-input w-full px-3.5 py-2.5 rounded-xl text-xs text-slate-800">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="form_lbl_email">Email Address *</label>
+                  <input type="email" id="contact-email" required placeholder="name@example.com" class="glass-input w-full px-3.5 py-2.5 rounded-xl text-xs text-slate-800">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="form_lbl_subject">Subject *</label>
+                <select id="contact-subject" class="glass-input w-full px-3.5 py-2.5 rounded-xl text-xs text-slate-800">
+                  <option value="General Inquiry">General Organization Inquiry</option>
+                  <option value="Membership Question">Membership & Application Follow-up</option>
+                  <option value="Self-Reliance Program">Sustainable Self-Reliance Program Collaboration</option>
+                  <option value="Donation via Member">Donation Inquiry via Verified Member</option>
+                  <option value="Disaster Relief">Disaster Response Notification</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="form_lbl_message">Your Message *</label>
+                <textarea id="contact-message" rows="4" required placeholder="Please write your message clearly here..." class="glass-input w-full px-3.5 py-2.5 rounded-xl text-xs text-slate-800"></textarea>
+              </div>
+
+              <button type="submit" id="contact-submit-btn" class="glass-button-primary w-full py-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 cursor-pointer">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                <span data-i18n="btn_send_inquiry">Submit Official Inquiry</span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SECTION 9: FREQUENTLY ASKED QUESTIONS (FAQ) -->
+    <section class="py-12 md:py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      
+      <div class="text-center mb-8">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight" data-i18n="faq_title">Frequently Asked Questions</h2>
+        <p class="text-xs sm:text-sm text-slate-600 mt-1" data-i18n="faq_subtitle">Common questions regarding the Fi Sabilillah mission and governance.</p>
+      </div>
+
+      <div class="space-y-3" id="faq-accordion-container">
+        <!-- FAQ 1 -->
+        <div class="glass-card rounded-2xl overflow-hidden">
+          <button class="faq-toggle w-full px-5 py-4 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-slate-800 hover:text-brand-700 transition" aria-expanded="false">
+            <span data-i18n="faq1_q">Why does Fi Sabilillah prioritize sustainable self-reliance over simple handouts?</span>
+            <svg class="w-4 h-4 transform transition-transform text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-answer hidden px-5 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100/60 pt-3" data-i18n="faq1_a">
+            As detailed in Article 4 of our Constitution, temporary financial handouts frequently keep recipients trapped in recurring poverty and reliance. By providing vocational tools and productive means, beneficiaries gain lasting independence, preserving their dignity as contributing members of society.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="glass-card rounded-2xl overflow-hidden">
+          <button class="faq-toggle w-full px-5 py-4 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-slate-800 hover:text-brand-700 transition" aria-expanded="false">
+            <span data-i18n="faq2_q">How does the organization protect beneficiary dignity during assistance?</span>
+            <svg class="w-4 h-4 transform transition-transform text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-answer hidden px-5 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100/60 pt-3" data-i18n="faq2_a">
+            We strictly forbid publicity photo-ops that expose beneficiaries. Aid is rendered discreetly, confidentially, and strictly for the pleasure of Allah, ensuring recipients are never subjected to public humiliation.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="glass-card rounded-2xl overflow-hidden">
+          <button class="faq-toggle w-full px-5 py-4 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-slate-800 hover:text-brand-700 transition" aria-expanded="false">
+            <span data-i18n="faq3_q">How can non-members contribute to the fund?</span>
+            <svg class="w-4 h-4 transform transition-transform text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-answer hidden px-5 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100/60 pt-3" data-i18n="faq3_a">
+            According to Article 13 (Clause 2), contributions from non-members must be channeled through active organization members or verified directly via our official email (fisabilillahofficial21@gmail.com). This ensures complete fiduciary accountability and prevents commercialization.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="glass-card rounded-2xl overflow-hidden">
+          <button class="faq-toggle w-full px-5 py-4 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-slate-800 hover:text-brand-700 transition" aria-expanded="false">
+            <span data-i18n="faq4_q">What is the membership fee and minimum age?</span>
+            <svg class="w-4 h-4 transform transition-transform text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-answer hidden px-5 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100/60 pt-3" data-i18n="faq4_a">
+            There is zero membership application fee (completely free, Article 7, Clause 3). The minimum age requirement is 16 years. Once enrolled, members contribute a voluntary baseline of 50 BDT monthly to support operations.
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="relative z-10 border-t border-white/80 bg-white/70 backdrop-blur-xl pt-12 pb-8 px-4 sm:px-6 lg:px-8 mt-12">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-200/60">
+      
+      <!-- Logo & Bio -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-white ring-1 ring-slate-200 p-0.5 overflow-hidden flex items-center justify-center">
+          <img src="public/images/logo.png" alt="Fi Sabilillah Logo" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <div class="text-base font-bold text-slate-900 flex items-center gap-2">
+            Fi Sabilillah
+            <span class="text-xs font-normal text-gold-700 font-bengali">ফি সাবিলিল্লাহ</span>
+          </div>
+          <div class="text-xs text-slate-500">Non-Political, Non-Profit & Voluntary Organization • Est. April 10, 2021</div>
+        </div>
+      </div>
+
+      <!-- Quick Footer Links -->
+      <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-slate-600">
+        <a href="#about" class="hover:text-brand-700 transition" data-i18n="nav_about">About</a>
+        <a href="#programs" class="hover:text-brand-700 transition" data-i18n="nav_programs">Programs</a>
+        <a href="#constitution" class="hover:text-brand-700 transition" data-i18n="nav_constitution">Constitution</a>
+        <a href="#governance" class="hover:text-brand-700 transition" data-i18n="nav_governance">Governance</a>
+        <a href="#transparency" class="hover:text-brand-700 transition" data-i18n="nav_transparency">Transparency</a>
+        <a href="#contact" class="hover:text-brand-700 transition" data-i18n="nav_contact">Contact</a>
+      </div>
+
+      <!-- Official Gmail Pill -->
+      <a href="mailto:fisabilillahofficial21@gmail.com" class="glass-pill px-3.5 py-1.5 rounded-full text-xs font-mono text-brand-800 hover:text-brand-900 hover:bg-white flex items-center gap-1.5 transition">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+        <span>fisabilillahofficial21@gmail.com</span>
+      </a>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-3 text-center sm:text-left">
+      <div>
+        © 2021–2026 Fi Sabilillah. All rights reserved under the Constitution of Fi Sabilillah.
+      </div>
+      <div class="flex items-center gap-3">
+        <span>Founded in Bangladesh</span>
+        <span>•</span>
+        <span class="text-brand-700 font-medium">Seeking the Pleasure of Allah (আল্লাহর সন্তুষ্টির উদ্দেশ্যে)</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- INTERACTIVE MODAL: MEMBERSHIP APPLICATION (CHAPTER 3, ARTICLE 7) -->
+  <div id="membership-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-900/30 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="glass-card rounded-3xl w-full max-w-lg p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto shadow-2xl bg-white/95">
+      
+      <!-- Close Button -->
+      <button id="modal-close-btn" class="absolute top-5 right-5 p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition cursor-pointer" aria-label="Close application form">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+
+      <div class="mb-5">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-brand-100 text-brand-800 mb-2">Article 7 Prescribed Form</span>
+        <h3 id="modal-title" class="text-xl font-bold text-slate-900" data-i18n="modal_title">Membership Application Form</h3>
+        <p class="text-xs text-slate-500 mt-1" data-i18n="modal_subtitle">
+          Join Fi Sabilillah as an active voluntary member. No membership fee required (ধারা ৭, উপধারা ৩).
+        </p>
+      </div>
+
+      <form id="membership-app-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Full Legal Name *</label>
+          <input type="text" id="app-name" required placeholder="e.g. Tariqul Islam" class="glass-input w-full px-3.5 py-2 rounded-xl text-xs text-slate-800">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Email Address *</label>
+            <input type="email" id="app-email" required placeholder="name@example.com" class="glass-input w-full px-3.5 py-2 rounded-xl text-xs text-slate-800">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Phone / WhatsApp *</label>
+            <input type="tel" id="app-phone" required placeholder="+880 1..." class="glass-input w-full px-3.5 py-2 rounded-xl text-xs text-slate-800">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Age (Min. 16 years) *</label>
+            <input type="number" id="app-age" min="16" max="99" required placeholder="16+" class="glass-input w-full px-3.5 py-2 rounded-xl text-xs text-slate-800">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Referring Active Member *</label>
+            <input type="text" id="app-referral" required placeholder="Name of recommending member" class="glass-input w-full px-3.5 py-2 rounded-xl text-xs text-slate-800">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Occupation / Student Status</label>
+          <input type="text" id="app-occupation" placeholder="e.g. University Student, Teacher, Professional" class="glass-input w-full px-3.5 py-2 rounded-xl text-xs text-slate-800">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Statement of Interest & Commitment *</label>
+          <textarea id="app-statement" rows="3" required placeholder="Why do you wish to join Fi Sabilillah and how will you contribute to preserving human dignity?" class="glass-input w-full px-3.5 py-2 rounded-xl text-xs text-slate-800"></textarea>
+        </div>
+
+        <div class="rounded-xl p-3 bg-slate-50 border border-slate-200/60 text-[11px] text-slate-600 flex items-start gap-2">
+          <input type="checkbox" id="app-pledge" required class="mt-0.5 accent-brand-700 rounded">
+          <label for="app-pledge" class="cursor-pointer">
+            I confirm I am at least 16 years old and pledge to uphold the Constitution of Fi Sabilillah, attend scheduled meetings, and participate in voluntary activities (Article 7).
+          </label>
+        </div>
+
+        <div class="flex gap-2 pt-2">
+          <button type="button" id="modal-cancel-btn" class="glass-button-secondary flex-1 py-2.5 rounded-xl text-xs font-semibold">
+            Cancel
+          </button>
+          <button type="submit" id="modal-submit-btn" class="glass-button-primary flex-1 py-2.5 rounded-xl text-xs font-semibold">
+            Submit Application
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC & CONSTITUTION DATA -->
+    <!-- Modular JavaScript Data & Application Logic -->
+  <script src="src/data/constitution.js"></script>
+  <script src="src/js/translations.js"></script>
+  <script src="src/js/main.js"></script>
+  <script src="src/js/navigation.js"></script>
+  <script src="src/js/language.js"></script>
+  <script src="src/js/constitution.js"></script>
+  <script src="src/js/membership.js"></script>
+  <script src="src/js/calculator.js"></script>
+  <script src="src/js/contact.js"></script>
+</body>
+</html>
