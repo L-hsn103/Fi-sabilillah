@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (parseInt(applicantAge, 10) < 16) {
         if (typeof showToast === 'function') {
-          showToast('Minimum age must be 16 years (Article 7)', 'info');
+          showToast(window.t ? window.t('toast_min_age') : 'Minimum age must be 16 years (Article 7)', 'info');
         }
         return;
       }
@@ -68,7 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
       membershipAppForm.reset();
       
       if (typeof showToast === 'function') {
-        showToast(`Application received! Ref: ${appRefNumber}. Executive Council will review your referral with ${refMember}.`);
+        let msg = window.t ? window.t('toast_app_received') : `Application received! Ref: ${appRefNumber}.`;
+        msg = msg.replace('{ref}', appRefNumber).replace('{referrer}', refMember);
+        showToast(msg);
       }
     });
   }

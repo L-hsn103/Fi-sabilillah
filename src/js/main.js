@@ -50,9 +50,9 @@ function fallbackCopy(text, successMsg) {
   try {
     document.execCommand('copy');
     showToast(successMsg);
-  } catch (err) {
-    showToast('Address: ' + text, 'info');
-  }
+    } catch (err) {
+      showToast((window.t ? window.t('toast_address') : 'Address: ').replace('{text}', text), 'info');
+    }
   document.body.removeChild(textArea);
 }
 

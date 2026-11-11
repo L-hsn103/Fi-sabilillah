@@ -24,6 +24,18 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Bangla mode: apply Bengali font across the UI only when Bangla is active */
+html.lang-bn {
+  font-family: 'Hind Siliguri', sans-serif;
+}
+html.lang-bn .font-sans,
+html.lang-bn [class*="font-sans"] {
+  font-family: 'Hind Siliguri', sans-serif !important;
+}
+html.lang-bn .font-arabic {
+  font-family: 'Amiri', serif !important;
+}
+
 /* Glassmorphism 2.0 Navigation Bar */
 .glass-nav {
   background: rgba(255, 255, 255, 0.82);

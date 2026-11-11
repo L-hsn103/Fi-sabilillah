@@ -8,25 +8,26 @@ function updateCalculator(monthlyVal) {
   if (!sliderDisplayVal || !calcAnnualVal || !calcImpactDescription) return;
 
   const annualVal = monthlyVal * 12;
-  sliderDisplayVal.textContent = `${monthlyVal.toLocaleString()} ৳ / month`;
-  calcAnnualVal.textContent = `${annualVal.toLocaleString()} ৳ / year`;
+  sliderDisplayVal.textContent = `${monthlyVal.toLocaleString()} ৳ ${window.t ? window.t('calc_per_month') : '/ month'}`;
+  calcAnnualVal.textContent = `${annualVal.toLocaleString()} ৳ ${window.t ? window.t('calc_per_year') : '/ year'}`;
 
   let impactText = '';
+  const impactLabel = window.t ? window.t('calc_impact_label') : 'Empowerment Impact:';
   if (monthlyVal <= 100) {
     impactText = `
-      <strong>Empowerment Impact:</strong> Provides baseline vocational supplies (thread, tailoring supplies, basic toolsets) and emergency relief ration packages for families affected by sudden hardship.
+      <strong>${impactLabel}</strong> Provides baseline vocational supplies (thread, tailoring supplies, basic toolsets) and emergency relief ration packages for families affected by sudden hardship.
     `;
   } else if (monthlyVal <= 500) {
     impactText = `
-      <strong>Empowerment Impact:</strong> In 1 year (${annualVal.toLocaleString()} ৳), this fully finances a complete heavy-duty sewing machine or micro-trade seed cart, transitioning an unemployed household into an independent income-generating unit.
+      <strong>${impactLabel}</strong> In 1 year (${annualVal.toLocaleString()} ৳), this fully finances a complete heavy-duty sewing machine or micro-trade seed cart, transitioning an unemployed household into an independent income-generating unit.
     `;
   } else if (monthlyVal <= 1500) {
     impactText = `
-      <strong>Empowerment Impact:</strong> Enables 2–3 sustainable small business start-ups (e.g., roadside micro-grocer, mobile repair kit, poultry micro-incubator) plus educational supplies for children to prevent school dropouts.
+      <strong>${impactLabel}</strong> Enables 2–3 sustainable small business start-ups (e.g., roadside micro-grocer, mobile repair kit, poultry micro-incubator) plus educational supplies for children to prevent school dropouts.
     `;
   } else {
     impactText = `
-      <strong>Empowerment Impact:</strong> Transforms 5+ families with comprehensive vocational equipment, trade mentorship, and emergency health rehabilitation under the strict oversight of Article 6 programs.
+      <strong>${impactLabel}</strong> Transforms 5+ families with comprehensive vocational equipment, trade mentorship, and emergency health rehabilitation under the strict oversight of Article 6 programs.
     `;
   }
   calcImpactDescription.innerHTML = impactText;

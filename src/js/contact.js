@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (topEmailCopyBtn) {
     topEmailCopyBtn.addEventListener('click', () => {
       if (typeof copyToClipboard === 'function') {
-        copyToClipboard(emailToCopy, 'Official email copied: ' + emailToCopy);
+        const msg = window.t ? window.t('toast_email_copied').replace('{email}', emailToCopy) : 'Official email copied: ' + emailToCopy;
+        copyToClipboard(emailToCopy, msg);
       }
     });
   }
@@ -19,7 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (cardEmailCopyBtn) {
     cardEmailCopyBtn.addEventListener('click', () => {
       if (typeof copyToClipboard === 'function') {
-        copyToClipboard(emailToCopy, 'Email copied to clipboard!');
+        const msg = window.t ? window.t('toast_email_copied_short') : 'Email copied to clipboard!';
+        copyToClipboard(emailToCopy, msg);
       }
     });
   }
@@ -27,7 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (quickCopyTrigger) {
     quickCopyTrigger.addEventListener('click', () => {
       if (typeof copyToClipboard === 'function') {
-        copyToClipboard(emailToCopy, 'Email copied to clipboard!');
+        const msg = window.t ? window.t('toast_email_copied_short') : 'Email copied to clipboard!';
+        copyToClipboard(emailToCopy, msg);
       }
     });
   }
@@ -41,7 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
       contactInquiryForm.reset();
       
       if (typeof showToast === 'function') {
-        showToast(`Thank you, ${senderName}! Your message regarding "${subject}" has been transmitted to fisabilillahofficial21@gmail.com.`);
+        let msg = window.t ? window.t('toast_thank_you') : `Thank you, ${senderName}!`;
+        msg = msg.replace('{name}', senderName).replace('{subject}', subject);
+        showToast(msg);
       }
     });
   }
