@@ -1,12 +1,17 @@
 /**
  * Fi Sabilillah - Language Switcher (EN / BN)
  * English and Bangla are two completely separate language modes.
+ * Works on dynamically loaded components (navbar/footer) via fetch.
  */
 let currentLang = 'en';
 
 function getTranslation(key) {
   if (typeof translations !== 'undefined' && translations[currentLang] && translations[currentLang][key]) {
     return translations[currentLang][key];
+  }
+  const otherLang = currentLang === 'en' ? 'bn' : 'en';
+  if (typeof translations !== 'undefined' && translations[otherLang] && translations[otherLang][key]) {
+    return translations[otherLang][key];
   }
   return key;
 }
@@ -21,10 +26,12 @@ function setLanguage(lang) {
 
   const currentLangLabel = document.getElementById('current-lang-label');
   const mobileLangLabel = document.getElementById('mobile-lang-label');
+  const mobileLangLabelInDrawer = document.getElementById('mobile-lang-label-in-drawer');
   const otherLangLabel = lang === 'en' ? 'বাংলা' : 'English';
 
   if (currentLangLabel) currentLangLabel.textContent = otherLangLabel;
   if (mobileLangLabel) mobileLangLabel.textContent = otherLangLabel;
+  if (mobileLangLabelInDrawer) mobileLangLabelInDrawer.textContent = otherLangLabel;
 
   document.documentElement.lang = lang;
   document.documentElement.classList.toggle('lang-bn', lang === 'bn');
@@ -54,15 +61,38 @@ function setLanguage(lang) {
 
     if (translation && translation !== key) {
       const tag = el.tagName;
+      const hasElementChildren = el.querySelector(':scope > *') !== null;
       if (tag === 'INPUT' || tag === 'TEXTAREA') {
         el.placeholder = translation;
       } else if (tag === 'OPTION') {
         el.textContent = translation;
-      } else {
+      } else if (!hasElementChildren) {
         el.innerHTML = translation;
+      } else if (translation.indexOf('<') !== -1) {
+        el.innerHTML = translation;
+      }
+      // Also translate alt attribute if present
+      if (el.hasAttribute('alt')) {
+        el.setAttribute('alt', translation);
+      }
+      // Also translate aria-label if present
+      if (el.hasAttribute('aria-label')) {
+        el.setAttribute('aria-label', translation);
+      }
+      // Also translate title attribute if present
+      if (el.hasAttribute('title')) {
+        el.setAttribute('title', translation);
       }
     }
   });
+
+  if (typeof __setNavCurrentLang === 'function') {
+    __setNavCurrentLang(lang);
+  }
+
+  if (typeof __setActivitiesLang === 'function') {
+    __setActivitiesLang(lang);
+  }
 
   if (typeof renderArticles === 'function') {
     renderArticles();

@@ -16,6 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('overflow-hidden');
   }
 
+  // Expose globally for navigation.js
+  window.openModal = openModal;
+
   function closeModal() {
     if (!membershipModal) return;
     membershipModal.classList.add('hidden');

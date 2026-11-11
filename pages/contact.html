@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Fi Sabilillah</title>
+  <link rel="icon" type="image/png" href="../public/images/favicon.png">
+  <meta name="description" content="Fi Sabilillah - Contact: Official email, contact information, inquiry form, and FAQ.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: { 50: '#f0fdf7', 100: '#dcfce9', 200: '#bbf7d2', 300: '#86efae', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#0d5c46', 800: '#0b4737', 900: '#073327', 950: '#031c15' },
+            gold: { 50: '#fbf9f2', 100: '#f5f0df', 200: '#ebdebc', 300: '#dec793', 400: '#cfa964', 500: '#c5a059', 600: '#b08745', 700: '#8c6835', 800: '#71532f', 900: '#5e452a' }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Hind Siliguri"', 'sans-serif'],
+            bengali: ['"Hind Siliguri"', 'sans-serif'],
+            arabic: ['"Amiri"', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="../src/css/style.css">
+  <link rel="stylesheet" href="../src/css/responsive.css">
+  <link rel="stylesheet" href="../src/css/animations.css">
+</head>
+<body class="min-h-screen text-slate-800 antialiased">
+
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <nav id="main-navbar" class="sticky top-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    
+    <!-- Logo & Organization Name -->
+    <a href="../index.html" class="navbar-home flex items-center gap-3 group focus:outline-none focus:ring-2 focus-ring-brand-700/20 rounded-xl p-1">
+      <div class="relative w-10 h-10 rounded-full p-0.5 bg-white shadow-sm ring-1 ring-slate-200/80 overflow-hidden flex items-center justify-center">
+        <img src="../public/images/logo.png" alt="Fi Sabilillah Logo" class="w-full h-full object-cover">
+      </div>
+      <div class="flex flex-col">
+        <span class="text-sm font-bold tracking-tight text-slate-900 group-hover:text-brand-700 transition flex items-center gap-1.5">
+          Fi Sabilillah
+          <span class="text-[10px] font-normal text-gold-600 font-bengali bg-gold-50 px-1 py-0.5 rounded border border-gold-200/50">ফি সাবিলিল্লাহ</span>
+        </span>
+        <span class="text-[10px] font-medium text-slate-500 uppercase tracking-wider" data-i18n="nav_tagline">Non-Profit & Voluntary Org</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="flex items-center gap-1 xl:gap-2" id="desktop-nav">
+      <a href="../index.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brand-700 rounded-lg hover:bg-white/60 transition" data-i18n="nav_home">Home</a>
+      <div class="relative group">
+        <button class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brand-700 rounded-lg hover:bg-white/60 transition flex items-center gap-1" aria-haspopup="true" aria-expanded="false">
+          <span data-i18n="nav_about">About Us</span>
+          <svg class="w-3 h-3 ml-1 text-slate-400 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="absolute hidden top-full left-0 mt-2 w-56 bg-white border border-slate-200 rounded-xl shadow-lg py-2 z-50" aria-label="About Us submenu">
+          <button class="dropdown-item w-full px-4 py-2 text-xs text-left text-slate-600 hover:bg-brand-50 hover:text-brand-700 transition" data-i18n="nav_who_we_are">Who We Are</button>
+          <button class="dropdown-item w-full px-4 py-2 text-xs text-left text-slate-600 hover:bg-brand-50 hover:text-brand-700 transition" data-i18n="nav_vision_mission">Vision & Mission</button>
+          <button class="dropdown-item w-full px-4 py-2 text-xs text-left text-slate-600 hover:bg-brand-50 hover:text-brand-700 transition" data-i18n="nav_core_values">Core Values</button>
+        </div>
+      </div>
+      <a href="programs.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brand-700 rounded-lg hover:bg-white/60 transition" data-i18n="nav_programs">Our Programs</a>
+      <div class="relative group">
+        <button class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brand-700 rounded-lg hover:bg-white/60 transition flex items-center gap-1" aria-haspopup="true" aria-expanded="false">
+          <span data-i18n="nav_governance">Governance</span>
+          <svg class="w-3 h-3 ml-1 text-slate-400 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="absolute hidden top-full left-0 mt-2 w-56 bg-white border border-slate-200 rounded-xl shadow-lg py-2 z-50" aria-label="Governance submenu">
+          <button class="dropdown-item w-full px-4 py-2 text-xs text-left text-slate-600 hover:bg-brand-50 hover:text-brand-700 transition" data-i18n="nav_org_structure">Organizational Structure</button>
+          <button class="dropdown-item w-full px-4 py-2 text-xs text-left text-slate-600 hover:bg-brand-50 hover:text-brand-700 transition" data-i18n="nav_exec_council">Executive Council</button>
+          <button class="dropdown-item w-full px-4 py-2 text-xs text-left text-slate-600 hover:bg-brand-50 hover:text-brand-700 transition" data-i18n="nav_membership">Membership</button>
+        </div>
+      </div>
+      <div class="relative group">
+        <button class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brand-700 rounded-lg hover:bg-white/60 transition flex items-center gap-1" aria-haspopup="true" aria-expanded="false">
+          <span data-i18n="nav_resources">Resources</span>
+          <svg class="w-3 h-3 ml-1 text-slate-400 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="absolute hidden top-full left-0 mt-2 w-56 bg-white border border-slate-200 rounded-xl shadow-lg py-2 z-50" aria-label="Resources submenu">
+          <button class="dropdown-item w-full px-4 py-2 text-xs text-left text-slate-600 hover:bg-brand-50 hover:text-brand-700 transition" data-i18n="nav_constitution">Constitution</button>
+          <button class="dropdown-item w-full px-4 py-2 text-xs text-left text-slate-600 hover:bg-brand-50 hover:text-brand-700 transition" data-i18n="nav_transparency">Transparency</button>
+          <button class="dropdown-item w-full px-4 py-2 text-xs text-left text-slate-600 hover:bg-brand-50 hover:text-brand-700 transition" data-i18n="nav_activities">Activities & Updates</button>
+        </div>
+      </div>
+      <a href="contact.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brand-700 rounded-lg hover:bg-white/60 transition" data-i18n="nav_contact">Contact</a>
+    </nav>
+
+    <!-- Right Action Items -->
+    <div class="flex items-center gap-3">
+      <button id="lang-toggle-btn" class="px-3 py-1.5 text-xs font-semibold text-slate-700 hover:text-brand-700 flex items-center gap-1.5 rounded-full transition border border-slate-200/60 bg-white/80 backdrop-blur-md" title="Toggle Language (English / বাংলা)">
+        <svg class="w-3.5 h-3.5 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+        <span id="current-lang-label">বাংলা</span>
+      </button>
+      <button id="nav-apply-btn" class="px-4 py-2 text-xs font-semibold bg-brand-700 text-white rounded-xl flex items-center gap-1.5 cursor-pointer shadow-md hover:bg-brand-800 transition">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
+        <span data-i18n="nav_cta_apply">Join / Apply</span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <div class="flex items-center gap-2 lg:hidden">
+      <button id="mobile-lang-btn" class="px-2.5 py-1 text-xs font-semibold text-slate-700 rounded-full border border-slate-200/60 bg-white/80 backdrop-blur-md">
+        <span id="mobile-lang-label">বাংলা</span>
+      </button>
+      <button id="mobile-menu-toggle" class="p-2 rounded-xl text-slate-700 hover:bg-white/80 transition" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu-drawer">
+        <svg id="menu-icon-bars" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Navigation -->
+  <div id="mobile-menu-drawer" class="hidden lg:hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl px-6 py-6 shadow-xl">
+    <div class="flex flex-col gap-3">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+</nav>
+
+  <main class="relative z-10">
+
+    <!-- Page Header -->
+    <section class="py-10 md:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 text-brand-800 text-xs font-semibold mb-3 border border-brand-100">
+          <span data-i18n="sec_contact_tag">Official Communication</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight" data-i18n="contact_title">Contact</h1>
+        <p class="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed" data-i18n="contact_intro">
+          For inquiries, member verification, program proposals, or voluntary collaboration, reach out to our executive secretariat.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Details & Email -->
+    <section class="py-12 md:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+        <!-- Left: Official Contact Details -->
+        <div class="lg:col-span-5 space-y-6">
+
+          <!-- Email Card -->
+          <div class="bg-white/60 rounded-2xl p-6 border border-white/60 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-1" data-i18n="contact_email">Official Organization Email</h3>
+            <p class="text-xs text-slate-500 mb-4" data-i18n="contact_email_desc">Primary channel for official correspondence & documentation.</p>
+
+            <div class="flex items-center justify-between p-3 rounded-xl bg-white/80 border border-slate-200/80 mb-3">
+              <span class="text-xs sm:text-sm font-semibold text-slate-800 select-all font-mono">fisabilillahofficial21@gmail.com</span>
+              <button id="card-email-copy-btn" class="p-1.5 rounded-lg text-slate-500 hover:text-brand-700 hover:bg-slate-100 transition cursor-pointer" title="Copy email address">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+              </button>
+            </div>
+
+            <div class="flex gap-2">
+              <a href="mailto:fisabilillahofficial21@gmail.com" class="bg-brand-700 text-white flex-1 py-2.5 rounded-xl text-xs font-semibold text-center flex items-center justify-center gap-1.5 shadow-md hover:bg-brand-800 transition">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                <span data-i18n="contact_send_email">Send Email</span>
+              </a>
+              <button id="quick-copy-trigger" class="border border-white/60 text-white px-4 py-2.5 rounded-xl text-xs font-semibold flex items-center justify-center gap-1 hover:bg-white/20 transition backdrop-blur-sm">
+                <span data-i18n="contact_copy_email">Copy</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Location Card -->
+          <div class="bg-white/60 rounded-2xl p-6 border border-white/60 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-gold-50 text-gold-700 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-1" data-i18n="contact_location">Headquarters & Jurisdiction</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-2" data-i18n="contact_location_desc">
+              Primary operational domain: <span class="font-bold text-slate-800" data-i18n="bangladesh_pages_contact_html_1nn1">Bangladesh</span> (Article 3).
+            </p>
+            <p class="text-xs text-slate-500 leading-relaxed" data-i18n="voluntary_coordination_across_educational_institut_pages_contact_html_20kq">
+              Voluntary coordination across educational institutions, communities, and disaster-prone zones nationwide.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Right: Inquiry Form -->
+        <div class="lg:col-span-7">
+          <div class="bg-white/60 rounded-2xl p-6 sm:p-8 border border-white/60 shadow-sm">
+            <h3 class="text-lg font-bold text-slate-900 mb-1" data-i18n="contact_form_title">Send a Direct Inquiry</h3>
+            <p class="text-xs text-slate-500 mb-6" data-i18n="contact_form_subtitle">We typically respond to official inquiries within 24–48 hours.</p>
+
+            <form id="contact-inquiry-form" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="contact_name">Your Full Name *</label>
+                  <input type="text" id="contact-name" required placeholder="e.g. Abdullah Al Mamun" class="glass-input w-full px-3.5 py-2.5 rounded-xl text-xs text-slate-800">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="contact_email_field">Email Address *</label>
+                  <input type="email" id="contact-email" required placeholder="name@example.com" class="glass-input w-full px-3.5 py-2.5 rounded-xl text-xs text-slate-800">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="contact_subject">Subject *</label>
+                <select id="contact-subject" class="glass-input w-full px-3.5 py-2.5 rounded-xl text-xs text-slate-800">
+                  <option value="General Inquiry" data-i18n="contact_opt_general">General Organization Inquiry</option>
+                  <option value="Membership Question" data-i18n="contact_opt_membership">Membership & Application Follow-up</option>
+                  <option value="Self-Reliance Program" data-i18n="contact_opt_selfreliance">Sustainable Self-Reliance Program Collaboration</option>
+                  <option value="Donation via Member" data-i18n="contact_opt_donation">Donation Inquiry via Verified Member</option>
+                  <option value="Disaster Relief" data-i18n="contact_opt_disaster">Disaster Response Notification</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="contact_message">Your Message *</label>
+                <textarea id="contact-message" rows="4" required data-i18n="contact_ph_message" placeholder="Please write your message clearly here..." class="glass-input w-full px-3.5 py-2.5 rounded-xl text-xs text-slate-800"></textarea>
+              </div>
+
+              <button type="submit" id="contact-submit-btn" class="bg-brand-700 text-white w-full py-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 shadow-md hover:bg-brand-800 transition cursor-pointer">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                <span data-i18n="contact_submit">Submit Official Inquiry</span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-12 md:py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <div class="text-center mb-8">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight" data-i18n="faq_title">Frequently Asked Questions</h2>
+        <p class="text-xs sm:text-sm text-slate-600 mt-1" data-i18n="faq_subtitle">Common questions regarding the Fi Sabilillah mission and governance.</p>
+      </div>
+
+      <div class="space-y-3" id="faq-accordion-container">
+        <!-- FAQ 1 -->
+        <div class="bg-white/60 rounded-2xl overflow-hidden border border-white/60 shadow-sm">
+          <button class="faq-toggle w-full px-5 py-4 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-slate-800 hover:text-brand-700 transition" aria-expanded="false">
+            <span data-i18n="faq1_q">Why does Fi Sabilillah prioritize sustainable self-reliance over simple handouts?</span>
+            <svg class="w-4 h-4 transform transition-transform text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-answer hidden px-5 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100/60 pt-3" data-i18n="faq1_a">
+            As detailed in Article 4 of our Constitution, temporary financial handouts frequently keep recipients trapped in recurring poverty and reliance. By providing vocational tools and productive means, beneficiaries gain lasting independence, preserving their dignity as contributing members of society.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="bg-white/60 rounded-2xl overflow-hidden border border-white/60 shadow-sm">
+          <button class="faq-toggle w-full px-5 py-4 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-slate-800 hover:text-brand-700 transition" aria-expanded="false">
+            <span data-i18n="faq2_q">How does the organization protect beneficiary dignity during assistance?</span>
+            <svg class="w-4 h-4 transform transition-transform text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-answer hidden px-5 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100/60 pt-3" data-i18n="faq2_a">
+            We strictly forbid publicity photo-ops that expose beneficiaries. Aid is rendered discreetly, confidentially, and strictly for the pleasure of Allah, ensuring recipients are never subjected to public humiliation.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="bg-white/60 rounded-2xl overflow-hidden border border-white/60 shadow-sm">
+          <button class="faq-toggle w-full px-5 py-4 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-slate-800 hover:text-brand-700 transition" aria-expanded="false">
+            <span data-i18n="faq3_q">How can non-members contribute to the fund?</span>
+            <svg class="w-4 h-4 transform transition-transform text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-answer hidden px-5 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100/60 pt-3" data-i18n="faq3_a">
+            According to Article 13 (Clause 2), contributions from non-members must be channeled through active organization members or verified directly via our official email (fisabilillahofficial21@gmail.com). This ensures complete fiduciary accountability and prevents commercialization.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="bg-white/60 rounded-2xl overflow-hidden border border-white/60 shadow-sm">
+          <button class="faq-toggle w-full px-5 py-4 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-slate-800 hover:text-brand-700 transition" aria-expanded="false">
+            <span data-i18n="faq4_q">What is the membership fee and minimum age?</span>
+            <svg class="w-4 h-4 transform transition-transform text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-answer hidden px-5 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100/60 pt-3" data-i18n="faq4_a">
+            There is zero membership application fee (completely free, Article 7, Clause 3). The minimum age requirement is 16 years. Once enrolled, members contribute a voluntary baseline of 50 BDT monthly to support operations.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="../src/data/constitution.js"></script>
+  <script src="../src/js/translations.js"></script>
+  <script src="../src/js/main.js"></script>
+  <script src="../src/js/components.js"></script>
+  <script src="../src/js/navigation.js"></script>
+  <script src="../src/js/language.js"></script>
+  <script src="../src/js/contact.js"></script>
+</body>
+</html>

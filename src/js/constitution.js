@@ -4,13 +4,6 @@
  */
 let selectedChapter = 'all';
 
-function t(key) {
-  if (typeof translations !== 'undefined' && translations[currentLang] && translations[currentLang][key]) {
-    return translations[currentLang][key];
-  }
-  return key;
-}
-
 function articleLabel(n) {
   return t('art_label').replace('{n}', n);
 }

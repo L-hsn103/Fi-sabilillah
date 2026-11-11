@@ -57,9 +57,6 @@ function fallbackCopy(text, successMsg) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  if (typeof initLanguage === 'function') {
-    initLanguage();
-  }
   if (typeof renderArticles === 'function') {
     renderArticles();
   }

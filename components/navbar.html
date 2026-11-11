@@ -1,0 +1,55 @@
+<!-- Fi Sabilillah - Shared Navigation Component -->
+<nav id="main-navbar" class="sticky top-0 z-40 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    
+    <!-- Logo & Organization Name -->
+    <a href="index.html" class="navbar-home flex items-center gap-3 group focus:outline-none focus:ring-2 focus-ring-brand-700/20 rounded-xl p-1">
+      <div class="relative w-10 h-10 rounded-full p-0.5 bg-white shadow-sm ring-1 ring-slate-200/80 overflow-hidden flex items-center justify-center">
+        <img src="public/images/logo.png" alt="Fi Sabilillah Logo" class="w-full h-full object-cover">
+      </div>
+      <div class="flex flex-col">
+        <span class="text-sm font-bold tracking-tight text-slate-900 group-hover:text-brand-700 transition flex items-center gap-1.5">
+          Fi Sabilillah
+          <span class="text-[10px] font-normal text-gold-600 font-bengali bg-gold-50 px-1 py-0.5 rounded border border-gold-200/50">ফি সাবিলিল্লাহ</span>
+        </span>
+        <span class="text-[10px] font-medium text-slate-500 uppercase tracking-wider" data-i18n="nav_tagline">Non-Profit & Voluntary Org</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden lg:flex items-center gap-1 xl:gap-2" id="desktop-nav">
+      <!-- Populated by JS -->
+    </nav>
+
+    <!-- Right Action Items (Language Switcher & Membership CTA) -->
+    <div class="hidden sm:flex items-center gap-3">
+      <button id="lang-toggle-btn" class="px-3 py-1.5 text-xs font-semibold text-slate-700 hover:text-brand-700 flex items-center gap-1.5 rounded-full transition border border-slate-200/60 bg-white/80 backdrop-blur-md" title="Toggle Language (English / বাংলা)">
+        <svg class="w-3.5 h-3.5 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+        <span id="current-lang-label">বাংলা</span>
+      </button>
+
+      <button id="nav-apply-btn" class="px-4 py-2 text-xs font-semibold bg-brand-700 text-white rounded-xl flex items-center gap-1.5 cursor-pointer shadow-md hover:bg-brand-800 transition">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
+        <span data-i18n="nav_cta_apply">Join / Apply</span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <div class="flex items-center gap-2 lg:hidden">
+      <button id="mobile-lang-btn" class="px-2.5 py-1 text-xs font-semibold text-slate-700 rounded-full border border-slate-200/60 bg-white/80 backdrop-blur-md">
+        <span id="mobile-lang-label">বাংলা</span>
+      </button>
+      <button id="mobile-menu-toggle" class="p-2 rounded-xl text-slate-700 hover:bg-white/80 transition" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu-drawer">
+        <svg id="menu-icon-bars" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Navigation -->
+  <div id="mobile-menu-drawer" class="hidden lg:hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl px-6 py-6 shadow-xl">
+    <div class="flex flex-col gap-3">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+</nav>

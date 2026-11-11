@@ -18,7 +18,7 @@
 }
 
 @media (max-width: 640px) {
-  .glass-card {
+  .card-base {
     border-radius: 1.25rem;
   }
 }
@@ -31,13 +31,46 @@
     background: white !important;
     color: black !important;
   }
-  .glass-card {
+  .card-base {
     border: 1px solid #ccc !important;
     box-shadow: none !important;
     background: white !important;
   }
-  #articles-container .glass-card {
+  #articles-container .card-base {
     page-break-inside: avoid;
     margin-bottom: 1rem;
   }
+}
+
+/* Mobile drawer dropdown sections */
+.mobile-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mobile-nav-header svg {
+  transition: transform 0.25s ease;
+}
+.mobile-nav-header svg.rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* Desktop dropdown */
+.dropdown-item {
+  cursor: pointer;
+}
+
+/* Navbar link active states */
+.nav-link, .mobile-nav-link {
+  transition: all 0.2s ease;
+}
+
+/* Filter buttons */
+.filter-btn {
+  transition: all 0.2s ease;
+}
+
+/* Activity cards */
+.group:hover .text-brand-700 {
+  color: #0d5c46;
 }
